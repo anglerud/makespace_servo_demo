@@ -183,4 +183,3 @@ would have ended up on the microcontroller. You can built it and take a look at 
 ❯ file target/thumbv7m-none-eabi/debug/servo_demo
 target/thumbv7m-none-eabi/debug/servo_demo: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, with debug_info, not stripped
 ```
-
