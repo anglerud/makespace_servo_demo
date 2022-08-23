@@ -151,11 +151,50 @@ There are also contiously rotating servos, and servos which respond to just the
 servos use.
 
 
-# Running the demo
+# Running the demos
+
+## stm32 and rust
+
+### Setup
+
+To prepare - go to https://rustup.rs/ and follow the instructions to get Rust
+installed.
+
+Add the cross-compilation target for the microcontroller:
+
+    rustup target add thumbv7m-none-eabi
+
+Install `probe-rs`'s dependencies with
+
+    sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev
+
+and then `probe-rs` itself with
+
+    cargo install probe-run
+
+Set up the `udev` rules so that you can access the st-link programmer without
+having to use `sudo` or being the root user. Create the file
+`/etc/udev/rules.d/70-st-link.rules` and add the contents:
+
+    # STM32F3DISCOVERY rev A/B - ST-LINK/V2
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", TAG+="uaccess"
+
+    # STM32F3DISCOVERY rev C+ - ST-LINK/V2-1
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", TAG+="uaccess"
+
+Reload all the `udev` rules with:
+
+    sudo udevadm control --reload-rules
+
+Then plug in the St-Link V2 programmer.
+
+
+### Build, and flash the code
 
 We flash the code onto the blue pill with `cargo run`, which will invoke the
-`probe-run` programmer, part of the probe.rs toolchain. This is configured via
-Cargo, the Rust package manager and build system.
+`probe-run` launcher, part of the probe.rs toolchain. This is configured via
+Cargo, the Rust package manager and build system. See
+`demo_stm32_rust/.cargo/config`.
 
 Note that `probe-run` also connects the debugger, so we'll be able to get debug
 prints and even stack traces from the code.
@@ -168,7 +207,7 @@ able to see the control signal on the oscilloscope - and you can see what
 signal corresponds to what angle of the servo.
 
 
-## probe-run
+### probe-run
 
 The `probe-run` configuration, and some other building and linking information
 is in the `.cargo/config` file - you can take a look in there, it is well
@@ -184,3 +223,9 @@ would have ended up on the microcontroller. You can built it and take a look at 
 target/thumbv7m-none-eabi/debug/servo_demo: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, with debug_info, not stripped
 ```
 
+
+## arduino nano and c++
+
+
+
+## Micro:bit and python
