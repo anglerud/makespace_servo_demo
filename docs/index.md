@@ -39,6 +39,10 @@ schemes, but these are both easy to get and cheap.
 
 ## MG90s
 
+<a href="images/mg90s_large.jpg"><img src="images/mg90s_small.jpg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+
 [Data Sheet](https://datasheetspdf.com/pdf/1106582/ETC/MG90S/1)
 
 Period of 20ms, and a duty cycle of 1-2ms.  Rotates 90deg in each direction -
@@ -52,28 +56,37 @@ Period of 20ms, and a duty cycle of 1-2ms.  Rotates 90deg in each direction -
 * Dead band width: 5 μs
 
 
-## MG996R
+## 6221MG
 
-[Data Sheet](https://www.electronicoscaldas.com/datasheet/MG996R_Tower-Pro.pdf)
+<a href="images/pdi6221mg_large.jpg"><img src="images/pdi6221mg_small.jpg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+
+[Link](https://www.rcgoing.com/jx-pdi-6221mg-20kg-large-torque-digital-standard-servo-360-degree-cw/)
 
 Period of 20ms, and duty cycle of 1-2ms. Rotates 60deg in each direction -
 120deg total.
 
-* Weight: 55 g
-* Dimension: 40.7 x 19.7 x 42.9 mm approx.
-* Stall torque: 9.4 kgf·cm (4.8 V ), 11 kgf·cm (6 V)
-* Operating speed: 0.17 s/60º (4.8 V), 0.14 s/60º (6 V)
-* Operating voltage: 4.8 V to 7.2 V
-* Running Current 500 mA – 900 mA (6V)
-* Stall Current 2.5 A (6V)
-* Dead band width: 5 μs
-* Stable and shock proof double ball bearing design
-* Temperature range: 0 ºC – 55 ºC
+    Model No: PDI-6221MG
+    Voltage: 4.8~6V
+    Stall Torque (4.8V): 17.25kg
+    Stall Torque (6.0V): 20.32kg
+    Speed (4.8V): 0.18sec/60°
+    Speed (6.0V): 0.16sec/60°
+    Dead Band: 2µs 1520µ/330hz
+    Motor: Std cored
+    Gears: Metal
+    Spline Count: 25T
+    Bearing: 2BB
+    Dimensions: 40.5 x 20.2 x 38mm
+    Weight: 62g
+    Connector: JR type
+    Servo Wire Length: 265mm
 
 
 A note on the stall torque and operating speed. Using this servo as an example,
-it says that at 4.8V, it can turn the output shaft 60 degrees in 0.17 seconds.
-When doing so - it can lift up to a 9.4kg weight that is attached at a radius
+it says that at 4.8V, it can turn the output shaft 60 degrees in 0.18 seconds.
+When doing so - it can lift up to a 17.25kg weight that is attached at a radius
 of 1cm from the center of the output shaft.
 
 
