@@ -2,7 +2,7 @@
 
 A demo of controlling RC servos from Rust.
 
-We have two different servos to show, a small MG90s, and a larger MG996R. These
+We have two different servos to show, a small MG90s, and a larger 6221MG. These
 are both RC servos, and are controlled in exactly the same way.
 
 
@@ -27,7 +27,7 @@ things.
 # The servos
 
 We have two different servos. The immediately obvious difference is that the
-MG996R is larger than the MG90s. It's also nearly 5x as powerful - see the
+6221MG is larger than the MG90s. It's also nearly 10x as powerful - see the
 "stall torque" numbers below. Another difference is that the smaller servo
 moves through 180 degrees, and the larger through 120 degrees (60 degrees
 either side of neutral).
@@ -40,7 +40,7 @@ schemes, but these are both easy to get and cheap.
 ## MG90s
 
 <a href="images/mg90s_large.jpg"><img src="images/mg90s_small.jpg" /></a>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 
 [Data Sheet](https://datasheetspdf.com/pdf/1106582/ETC/MG90S/1)
@@ -56,10 +56,10 @@ Period of 20ms, and a duty cycle of 1-2ms.  Rotates 90deg in each direction -
 * Dead band width: 5 μs
 
 
-## 6221MG
+## PDI-6221MG
 
 <a href="images/pdi6221mg_large.jpg"><img src="images/pdi6221mg_small.jpg" /></a>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 
 [Link](https://www.rcgoing.com/jx-pdi-6221mg-20kg-large-torque-digital-standard-servo-360-degree-cw/)
@@ -114,6 +114,12 @@ We'll power the board from a different power supply than the servo. The servo
 is getting 6V from a battery pack, and the microcontroller 3.3V from the
 St-link programmer (it can also be powered with either 3.3V or 5V on one of the
 pins marked accordingly).
+
+The end result should look like this:
+
+
+<a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 Note that while the microcontroller can also *output* either 3.3V or 5V on
 those pins, they won't provide enough current to move the servo, and trying to
@@ -242,3 +248,11 @@ target/thumbv7m-none-eabi/debug/servo_demo: ELF 32-bit LSB executable, ARM, EABI
 
 
 ## Micro:bit and python
+
+
+# Licenses
+
+
+Images and text licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+Attribution-ShareAlike 4.0 International License</a>.
