@@ -117,8 +117,15 @@ pins marked accordingly).
 
 The end result should look like this:
 
-
 <a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+
+This is the same as a drawing:
+<img src="images/stm32_servo_bb.jpg" />
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+
+And the same as a schematic:
+<img src="images/stm32_servo_schem.jpg" />
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 Note that while the microcontroller can also *output* either 3.3V or 5V on
@@ -248,6 +255,27 @@ target/thumbv7m-none-eabi/debug/servo_demo: ELF 32-bit LSB executable, ARM, EABI
 
 
 ## Micro:bit and python
+
+
+https://python.microbit.org/v/beta
+
+
+```python
+from microbit import * 
+# Servo control: 
+# 50 = ~1 millisecond pulse all right 
+# 75 = ~1.5 millisecond pulse center 
+# 100 = ~2.0 millisecond pulse all left 
+pin0.set_analog_period(20)
+
+while True: 
+	pin0.write_analog(75)
+	sleep(1000)
+	pin0.write_analog(50)
+	sleep(1000)
+	pin0.write_analog(100)
+	sleep(1000)
+```
 
 
 # Licenses
