@@ -40,7 +40,6 @@ schemes, but these are both easy to get and cheap.
 ## MG90s
 
 <a href="images/mg90s_large.jpg"><img src="images/mg90s_small.jpg" /></a>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 
 [Data Sheet](https://datasheetspdf.com/pdf/1106582/ETC/MG90S/1)
@@ -59,7 +58,6 @@ Period of 20ms, and a duty cycle of 1-2ms.  Rotates 90deg in each direction -
 ## PDI-6221MG
 
 <a href="images/pdi6221mg_large.jpg"><img src="images/pdi6221mg_small.jpg" /></a>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 
 [Link](https://www.rcgoing.com/jx-pdi-6221mg-20kg-large-torque-digital-standard-servo-360-degree-cw/)
@@ -118,15 +116,12 @@ pins marked accordingly).
 The end result should look like this:
 
 <a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
 
 This is the same as a drawing:
-<img src="images/stm32_servo_bb.jpg" />
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+<img src="images/stm32_servo_bb.png" />
 
 And the same as a schematic:
-<img src="images/stm32_servo_schem.jpg" />
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+<img src="images/stm32_servo_schem.png" />
 
 Note that while the microcontroller can also *output* either 3.3V or 5V on
 those pins, they won't provide enough current to move the servo, and trying to
@@ -284,3 +279,4 @@ while True:
 Images and text licensed under a <a rel="license"
 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
 Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
