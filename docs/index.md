@@ -118,10 +118,10 @@ The end result should look like this:
 <a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
 
 This is the same as a drawing:
-<img src="images/stm32_servo_bb.png" />
+<a href="images/stm32_servo_bb_small.png"><img src="images/stm32_servo_bb.png" /></a>
 
 And the same as a schematic:
-<img src="images/stm32_servo_schem.png" />
+<a href="images/stm32_servo_schem_small.png"><img src="images/stm32_servo_schem.png" /></a>
 
 Note that while the microcontroller can also *output* either 3.3V or 5V on
 those pins, they won't provide enough current to move the servo, and trying to
