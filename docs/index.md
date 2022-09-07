@@ -8,9 +8,9 @@ are both RC servos, and are controlled in exactly the same way.
 
 ## What *are* servos?
 
-Servos rotate to set angles based on the signal we send. The demo is going to
-move the servos through a 120 or 180 degree movement depending on the servo we
-select.
+These RC servos rotate to set angles based on the signal we send. The demo is
+going to move the servos through a 120 or 180 degree movement depending on the
+servo we select.
 
 The servo is made up of a small electric motor, a gearbox to lower the speed
 and increase the torque, a potentiometer connected to the output shaft, and
@@ -130,7 +130,7 @@ do so can damage the microcontroller board.
 
 # Controlling the servo
 
-The servo expects to receive a pulse each 20ms (so a 50hz signal), where the
+The servo expects to receive a pulse each 20ms (so a 50HZ Signal), where the
 width of the pulse determines the position of the output shaft. At a 1ms width,
 the servo is at one extreme, and at 2ms it is at the opposite extreme. At
 1.5ms, the servo is at its neutral (middle) position.
@@ -139,19 +139,19 @@ The signal is expected to be at 4.8V, but most servos will happily consume
 3.3V, all the way up to its maximum operating voltage.
 
 
-# Our setup 
+# Our setup for the STM32
 
 We connect the:
 
-* battery pack's ground to the black or blue power rail on the breadboard.
-* servo's power lead (red) to the battery pack's 6V output.
-* servo's ground lead (black or brown) to the common ground on the breadboard.
-* servo's signal lead (white, yellow, or orange) to a row on the breadboard.
-* microcontroller's pin PA0 to the same row on the breadboard as the servo
+* Battery pack's ground to the black or blue power rail on the breadboard.
+* Servo's power lead (red) to the battery pack's 6V output.
+* Servo's ground lead (black or brown) to the common ground on the breadboard.
+* Servo's signal lead (white, yellow, or orange) to a row on the breadboard.
+* Microcontroller's pin PA0 to the same row on the breadboard as the servo
   signal lead.
-* microcontroller's SWD pins to the ST-link V2 programmer.
-* oscilloscope's ground probe to the breadboards's ground rail.
-* oscilloscope's signal probe to the same row on the breadboard as the servo
+* Microcontroller's SWD pins to the ST-link V2 programmer.
+* Oscilloscope's ground probe to the breadboard's ground rail.
+* Oscilloscope's signal probe to the same row on the breadboard as the servo
   signal lead.
 
 We have connected up the oscilloscope so that we can visualise the servo
@@ -167,14 +167,14 @@ but as you'll see, it works fine.
 Other servos may operate at different voltages, have control schemes where the
 position can be read back, or even have programmable movement profiles.
 
-There are also contiously rotating servos, and servos which respond to just the
-%age time the signal is active, rather than the 50hz signal that these RC
+There are also continuously rotating servos, and servos which respond to just
+the %age time the signal is active, rather than the 50HZ signal that these RC
 servos use.
 
 
 # Running the demos
 
-## stm32 and rust
+## STM32 And rust
 
 ### Setup
 
@@ -213,7 +213,7 @@ Then plug in the St-Link V2 programmer.
 ### Build, and flash the code
 
 We flash the code onto the blue pill with `cargo run`, which will invoke the
-`probe-run` launcher, part of the probe.rs toolchain. This is configured via
+`probe-run` launcher, part of the probe.rs tool chain. This is configured via
 Cargo, the Rust package manager and build system. See
 `demo_stm32_rust/.cargo/config`.
 
@@ -223,7 +223,7 @@ prints and even stack traces from the code.
 Once flashed of course, the microcontroller operates without needing the
 programmer. We only use it to power the board after the first flash.
 
-You'll see the servo move between its two extremes continuousy. You'll also be
+You'll see the servo move between its two extremes continuously. You'll also be
 able to see the control signal on the oscilloscope - and you can see what
 signal corresponds to what angle of the servo.
 
@@ -244,15 +244,14 @@ would have ended up on the microcontroller. You can built it and take a look at 
 target/thumbv7m-none-eabi/debug/servo_demo: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), statically linked, with debug_info, not stripped
 ```
 
-
-## arduino nano and c++
-
-
-
 ## Micro:bit and python
 
+The [BBC Micro:bit](https://microbit.org/) can be easily used to control the
+servo as well. You can use the online IDE to generate the code to flash to the
+device.
 
-https://python.microbit.org/v/beta
+Head to the [IDE](https://python.microbit.org/v/beta) at microbit.org, and use
+the code below:
 
 
 ```python
@@ -271,6 +270,33 @@ while True:
 	pin0.write_analog(100)
 	sleep(1000)
 ```
+
+This demo sends the RC control signal on pin 0. We need to connect the
+microcontroller's ground to a common ground and then power the micro:bit, which
+we do via the onboard micro-USB port. It should look like this:
+
+<a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
+
+<!--
+This is the same as a drawing:
+<a href="images/stm32_servo_bb.png"><img src="images/stm32_servo_bb_small.png" /></a>
+
+And the same as a schematic:
+<a href="images/stm32_servo_schem.png"><img src="images/stm32_servo_schem_small.png" /></a>
+--> 
+
+
+
+If you're using Google Chrome as your browser, you can connect the microbit to
+a USB port on your computer and click "Send to micro:bit". If you're using
+another browser, you can select "Save" then drag the resulting downloaded file
+over to the microbit with your file manager.
+
+
+## Arduino nano and c++
+
+
+
 
 
 # Licenses
