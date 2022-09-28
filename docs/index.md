@@ -283,7 +283,7 @@ microcontroller's ground to a common ground and then power the micro:bit, which
 we do via the onboard micro-USB port. It should look like this:
 
 XXX: No, that's the wrong picture, that's the Arduino nano! Rename and replace that!
-<a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
+<a href="images/microbit_setup_large.jpg"><img src="images/microbit_setup_small.jpg" /></a>
 
 <!--
 This is the same as a drawing:
@@ -292,6 +292,8 @@ This is the same as a drawing:
 And the same as a schematic:
 <a href="images/stm32_servo_schem.png"><img src="images/stm32_servo_schem_small.png" /></a>
 --> 
+
+![microbit oscilloscope capture](images/microbit_oscilloscope.png)
 
 
 
@@ -307,6 +309,15 @@ over to the microbit with your file manager.
 <a href="images/arduino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
 
 ![arduino oscilloscope capture](images/arduino_oscilloscope.png)
+
+
+## Servo tester
+
+
+<a href="images/servo_tester_setup_large.jpg"><img src="images/servo_tester_setup_small.jpg" /></a>
+
+![servo tester oscilloscope capture](images/servo_tester_oscilloscope.png)
+
 
 
 # Licenses
