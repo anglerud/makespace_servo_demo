@@ -304,10 +304,9 @@ over to the microbit with your file manager.
 ## Arduino nano and c++
 
 
-<!--
 <a href="images/arduino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
--->
 
+![arduino oscilloscope capture](images/arduino_oscilloscope.png)
 
 
 # Licenses
