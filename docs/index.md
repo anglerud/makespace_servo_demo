@@ -227,6 +227,10 @@ You'll see the servo move between its two extremes continuously. You'll also be
 able to see the control signal on the oscilloscope - and you can see what
 signal corresponds to what angle of the servo.
 
+Here is what is displayed on our oscilloscope:
+
+![stm32 oscilloscope capture](images/stm32_oscilloscope.png)
+
 
 ### probe-run
 
@@ -271,10 +275,14 @@ while True:
 	sleep(1000)
 ```
 
+This snippet is from the excellent micro:bit [article on
+servos](https://support.microbit.org/support/solutions/articles/19000101864-using-a-servo-with-the-micro-bit).
+
 This demo sends the RC control signal on pin 0. We need to connect the
 microcontroller's ground to a common ground and then power the micro:bit, which
 we do via the onboard micro-USB port. It should look like this:
 
+XXX: No, that's the wrong picture, that's the Arduino nano! Rename and replace that!
 <a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
 
 <!--
@@ -296,6 +304,9 @@ over to the microbit with your file manager.
 ## Arduino nano and c++
 
 
+<!--
+<a href="images/arduino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
+-->
 
 
 
