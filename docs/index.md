@@ -139,7 +139,44 @@ The signal is expected to be at 4.8V, but most servos will happily consume
 3.3V, all the way up to its maximum operating voltage.
 
 
-# Our setup for the STM32
+# Other kinds of servos
+
+Other servos may operate at different voltages, have control schemes where the
+position can be read back, or even have programmable movement profiles.
+
+There are also continuously rotating servos, and servos which respond to just
+the %age time the signal is active, rather than the 50HZ signal that these RC
+servos use.
+
+
+# Running the demos
+
+## Use a Servo tester
+
+The easiest way to see the servo in action is to use a servo tester!  There are
+many available, for example [this
+model](https://www.amazon.co.uk/VIPMOON-Consistency-Connection-Protection-Centering/dp/B07T17LB2B/ref=sr_1_11)
+available cheaply via Amazon.
+
+In the picture below you can see the model we have in the makespace hooked up:
+
+<a href="images/servo_tester_setup_large.jpg"><img src="images/servo_tester_setup_small.jpg" /></a>
+
+
+When you turn the knob, the servo turns, it's very easy. I've also hooked it up
+to the oscilloscope so you can see the pulses that it's sending:
+
+![servo tester oscilloscope capture](images/servo_tester_oscilloscope.png)
+
+What isn't pictured there is that our tester actually does the wrong thing.
+When the pulses are lengthened, the total period of the cycle is extended -
+which shouldn't be the case. However, the servos are very robust and handle
+that condition as well.
+
+
+## STM32 And rust
+
+### Physical setup for the STM32
 
 We connect the:
 
@@ -161,20 +198,6 @@ NOTE: The PWM pin we have selected is PA0 on the blue pill microcontroller
 board. The PWM output is 3.3V, so below the 4.8V that the servo is expecting,
 but as you'll see, it works fine.
 
-
-# Other kinds of servos
-
-Other servos may operate at different voltages, have control schemes where the
-position can be read back, or even have programmable movement profiles.
-
-There are also continuously rotating servos, and servos which respond to just
-the %age time the signal is active, rather than the 50HZ signal that these RC
-servos use.
-
-
-# Running the demos
-
-## STM32 And rust
 
 ### Setup
 
@@ -305,19 +328,61 @@ over to the microbit with your file manager.
 
 ## Arduino nano and c++
 
+Here we've wired up our Arduino Nano to the same servo setup. The contol pin
+is "D9".
 
 <a href="images/arduino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
 
+We need to import the `Servo` library into your Arduino IDE. Different versions
+of the Arduino IDE unfortunately have the library manager in different places.
+Try either:
+
+```
+Tools -> Manage Libraries.
+Find the "Servo" library by "Arduino", and install that.
+```
+
+or
+
+```
+Sketch -> Import Library -> Servo
+```
+
+Now add the following code into your sketch, and upload it. If you're using a
+Nano, like we are here, remember to select the Nano from Tools -> Board, and
+pick the one with the ATMega328. You may also have to select which serial port
+to use.
+
+
+```C++
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+
+void setup() {
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+}
+
+void loop() {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+```
+
+When you run it, your servo should move - and you should see the following on your
+oscilloscope.
+
 ![arduino oscilloscope capture](images/arduino_oscilloscope.png)
-
-
-## Servo tester
-
-
-<a href="images/servo_tester_setup_large.jpg"><img src="images/servo_tester_setup_small.jpg" /></a>
-
-![servo tester oscilloscope capture](images/servo_tester_oscilloscope.png)
-
 
 
 # Licenses
