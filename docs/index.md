@@ -6,11 +6,20 @@ We have two different servos to show, a small MG90s, and a larger 6221MG. These
 are both RC servos, and are controlled in exactly the same way.
 
 
-## What *are* servos?
+## What *are* RC servos?
 
-These RC servos rotate to set angles based on the signal we send. The demo is
+These servos rotate to set angles based on the signal we send. The demo is
 going to move the servos through a 120 or 180 degree movement depending on the
 servo we select.
+
+Servos have different ranges of motion - from 90°, through 180°, or even more.
+Each servo has a spec sheet which will tell you its range of motion, among
+other things.
+
+An "RC" servo is a common type of hobby servo - the RC is for "Radio Control",
+and the name comes from their use back in the 1960s for radio control airplanes
+and similar. It was also at that time the control system (described below) was
+invented. Now these servos are used in all sorts of general hobby projects.
 
 The servo is made up of a small electric motor, a gearbox to lower the speed
 and increase the torque, a potentiometer connected to the output shaft, and
@@ -32,10 +41,6 @@ We have two different servos. The immediately obvious difference is that the
 moves through 180 degrees, and the larger through 120 degrees (60 degrees
 either side of neutral).
 
-The commonality is that they're both "RC" (radio control) servos, which is a
-common type of hobby servo. There are other types, with different control
-schemes, but these are both easy to get and cheap.
-
 
 ## MG90s
 
@@ -47,12 +52,12 @@ schemes, but these are both easy to get and cheap.
 Period of 20ms, and a duty cycle of 1-2ms.  Rotates 90deg in each direction -
 180deg in total.
 
-* Weight: 13.4 g
-* Dimension: 22.5 x 12 x 35.5 mm approx
-* Stall torque: 1.8 kgf·cm (4.8V ), 2.2 kgf·cm (6 V)
-* Operating speed: 0.1 s/60 degree  (4.8 V), 0.08 s/60 degree (6 V)
-* Operating voltage: 4.8 V - 6.0 V
-* Dead band width: 5 μs
+    Weight: 13.4 g
+    Dimension: 22.5 x 12 x 35.5 mm approx
+    Stall torque: 1.8 kgf·cm (4.8V ), 2.2 kgf·cm (6 V)
+    Operating speed: 0.1 s/60 degree  (4.8 V), 0.08 s/60 degree (6 V)
+    Operating voltage: 4.8 V - 6.0 V
+    Dead band width: 5 μs
 
 
 ## PDI-6221MG
@@ -137,6 +142,12 @@ the servo is at one extreme, and at 2ms it is at the opposite extreme. At
 
 The signal is expected to be at 4.8V, but most servos will happily consume
 3.3V, all the way up to its maximum operating voltage.
+
+The above is the most common. However, some 180° servos rotate through 90° with
+a 1ms difference in pulse widths - and so to get them to rotate though the full
+range - you need to extend the pulse width range from 0.5ms to 2.5ms. Hopefully
+the spec sheet will inform you of this, but sometimes you may have to
+experiment to see.
 
 
 # Other kinds of servos
