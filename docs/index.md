@@ -125,8 +125,9 @@ this:
 
 <a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
 
+<!-- OK, using the arduino image, but they are practically the same! -->
 This is the same as a drawing:
-<a href="images/stm32_servo_bb.png"><img src="images/stm32_servo_bb_small.png" /></a>
+<a href="images/arduino_servo_bb.png"><img src="images/arduino_servo_bb_small.png" /></a>
 
 Note that while the microcontroller can also *output* either 3.3V or 5V on
 those pins, they won't provide enough current to move the servo, and trying to
@@ -208,6 +209,8 @@ signal.
 NOTE: The PWM pin we have selected is PA0 on the blue pill microcontroller
 board. The PWM output is 3.3V, so below the 4.8V that the servo is expecting,
 but as you'll see, it works fine.
+
+<!-- TODO: repeat the stm32 images here -->
 
 
 ### Setup
