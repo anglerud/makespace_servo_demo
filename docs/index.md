@@ -115,17 +115,19 @@ signal at 3.3V with some of our microcontrollers, and you'll be able to still
 see the servo respond.
 
 We'll power the board from a different power supply than the servo. The servo
-is getting 6V from a battery pack, and when using the stm32 the microcontroller
-gets 3.3V from the St-link programmer (it can also be powered with either 3.3V
-or 5V on one of the pins marked accordingly).
+is getting 6V from a battery pack, and or microcontroller will get either ~3V
+from a battery pack, or be fed via USB. When using the stm32, it'll gets 3.3V
+from the St-link programmer, and when using the Arduino Nano we'll plug it into
+USB directly. Both can also be powered with either 3.3V or 5V on one of the
+pins marked accordingly. In the diagram I represent "generic power to the
+microcontroller" with a 3V battery pack, but in reality it's probably USB.
 
 We're connecting an oscilloscope so that we can see the signal, and we're using
 a breadboard to keep things a little neater. The end result should look like
 this:
 
-<a href="images/stm32_setup_large.jpg"><img src="images/stm32_setup_small.jpg" /></a>
+<a href="images/ardunino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
 
-<!-- OK, using the arduino image, but they are practically the same! -->
 This is the same as a drawing:
 <a href="images/arduino_servo_bb.png"><img src="images/arduino_servo_bb_small.png" /></a>
 
