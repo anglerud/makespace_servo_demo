@@ -108,25 +108,25 @@ where:
 
 * brown or black is ground.
 * red is servo power.
-* white, yellow, or orange is signal.
+* white, yellow, or orange is for the control signal.
 
 Power is commonly 4.8V, but as you can see from the specifications above, many
 accept a range of voltages, and they're even able to deal with lower voltages
-than specified for the control signal. For example, we'll give the control
-signal at 3.3V with some of our microcontrollers, and you'll be able to still
-see the servo respond.
+than specified for the control signal. For example, we'll have the control
+signal at 3.3V with some of our microcontrollers.
 
-We'll power the board from a different power supply than the servo. The servo
-is getting 6V from a battery pack, and or microcontroller will get either ~3V
-from a battery pack, or be fed via USB. When using the stm32, it'll gets 3.3V
-from the St-link programmer, and when using the Arduino Nano we'll plug it into
-USB directly. Both can also be powered with either 3.3V or 5V on one of the
-pins marked accordingly. In the diagram I represent "generic power to the
-microcontroller" with a 3V battery pack, but in reality it's probably USB.
+We'll power the microcontroller boards from a different power supply than the
+servo. The servo is getting 6V from a battery pack, and our microcontroller
+will get either ~3V from a battery pack, or be fed via USB. When using the
+stm32, it'll gets 3.3V from the St-link programmer, and when using the Arduino
+Nano we'll plug it into USB directly. Both can also be powered with either 3.3V
+or 5V on one of the pins marked accordingly. In the diagram I represent
+"generic power to the microcontroller" with a 3V battery pack, but in reality
+it's probably USB directly to the USB socket on the microcontroller board.
 
 We're connecting an oscilloscope so that we can see the signal, and we're using
-a breadboard to keep things a little neater. The end result should look like
-this:
+a breadboard to keep things a little neater. For the arduino setup, the end
+result should look like this:
 
 <a href="images/ardunino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
 
@@ -137,32 +137,24 @@ Note that while the microcontroller can also *output* either 3.3V or 5V on
 those pins, they won't provide enough current to move the servo, and trying to
 do so can damage the microcontroller board.
 
+Below we also have demos for two other microcontrollers, and a servo tester.
+
 
 # Controlling the servo
 
-The servo expects to receive a pulse each 20ms (so a 50HZ Signal), where the
-width of the pulse determines the position of the output shaft. At a 1ms width,
-the servo is at one extreme, and at 2ms it is at the opposite extreme. At
-1.5ms, the servo is at its neutral (middle) position.
+The servo expects to receive a pulse every 20ms (so a 50HZ Signal), where the
+width of the pulse determines the position of the output shaft. If the pulse i
+1ms long, the servo is at one extreme, and at 2ms it is at the opposite
+extreme. At 1.5ms, the servo is at its neutral (middle) position.
 
 The signal is expected to be at 4.8V, but most servos will happily consume
 3.3V, all the way up to its maximum operating voltage.
 
-The above is the most common. However, some 180° servos rotate through 90° with
-a 1ms difference in pulse widths - and so to get them to rotate though the full
-range - you need to extend the pulse width range from 0.5ms to 2.5ms. Hopefully
-the spec sheet will inform you of this, but sometimes you may have to
-experiment to see.
-
-
-# Other kinds of servos
-
-Other servos may operate at different voltages, have control schemes where the
-position can be read back, or even have programmable movement profiles.
-
-There are also continuously rotating servos, and servos which respond to just
-the %age time the signal is active, rather than the 50HZ signal that these RC
-servos use.
+The above is the most common control scheme. However, some 180° servos rotate
+through 90° with a 1ms difference in pulse widths - and so to get them to
+rotate though the full range - you need to extend the pulse width range from
+0.5ms to 2.5ms. Hopefully the spec sheet will inform you of this, but sometimes
+you may have to experiment to see.
 
 
 # Running the demos
@@ -251,6 +243,13 @@ Reload all the `udev` rules with:
 Then plug in the St-Link V2 programmer.
 
 
+### Get the code
+
+Check out the [makespace_servo_demo git
+repo](https://github.com/anglerud/makespace_servo_demo), and enter the
+`demo_stm32_rust` directory.
+
+
 ### Build, and flash the code
 
 We flash the code onto the blue pill with `cargo run`, which will invoke the
@@ -261,8 +260,8 @@ Cargo, the Rust package manager and build system. See
 Note that `probe-run` also connects the debugger, so we'll be able to get debug
 prints and even stack traces from the code.
 
-Once flashed of course, the microcontroller operates without needing the
-programmer. We only use it to power the board after the first flash.
+Once flashed, the microcontroller operates without needing the programmer. We
+only use it to power the board after the first flash.
 
 You'll see the servo move between its two extremes continuously. You'll also be
 able to see the control signal on the oscilloscope - and you can see what
@@ -323,16 +322,7 @@ This demo sends the RC control signal on pin 0. We need to connect the
 microcontroller's ground to a common ground and then power the micro:bit, which
 we do via the onboard micro-USB port. It should look like this:
 
-XXX: No, that's the wrong picture, that's the Arduino nano! Rename and replace that!
 <a href="images/microbit_setup_large.jpg"><img src="images/microbit_setup_small.jpg" /></a>
-
-<!--
-This is the same as a drawing:
-<a href="images/stm32_servo_bb.png"><img src="images/stm32_servo_bb_small.png" /></a>
-
-And the same as a schematic:
-<a href="images/stm32_servo_schem.png"><img src="images/stm32_servo_schem_small.png" /></a>
---> 
 
 ![microbit oscilloscope capture](images/microbit_oscilloscope.png)
 
