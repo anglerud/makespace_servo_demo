@@ -35,6 +35,8 @@ things.
 
 # The servos
 
+<a href="images/servo_comparison_large.jpg"><img src="images/servo_comparison_small.jpg" /></a>
+
 We have two different servos. The immediately obvious difference is that the
 6221MG is larger than the MG90s. It's also nearly 10x as powerful - see the
 "stall torque" numbers below. Another difference is that the smaller servo
