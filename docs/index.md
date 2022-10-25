@@ -13,8 +13,8 @@ going to move the servos through a 120 or 180 degree movement depending on the
 servo we select.
 
 Servos have different ranges of motion - from 90°, through 180°, or even more.
-Each servo has a spec sheet which will tell you its range of motion, among
-other things.
+Each servo has a spec sheet which will tell you its range of motion, and other
+important attributes.
 
 An "RC" servo is a common type of hobby servo - the RC is for "Radio Control",
 and the name comes from their use back in the 1960s for radio control airplanes
@@ -99,16 +99,16 @@ of 1cm from the center of the output shaft.
 
 The servo connectivity is through three wires that are terminated with a set of
 0.1" jacks. The order of the jacks is commonly signal, voltage, ground and are
-also color coded. There are two differnet schemes:
+also color coded. There are two different schemes:
 
 * black, red, white
 * brown, red, yellow/orange
 
-where:
+Where:
 
-* brown or black is ground.
-* red is servo power.
-* white, yellow, or orange is for the control signal.
+* Brown or black is ground.
+* Red is servo power.
+* White, yellow, or orange is for the control signal.
 
 Power is commonly 4.8V, but as you can see from the specifications above, many
 accept a range of voltages, and they're even able to deal with lower voltages
@@ -118,14 +118,14 @@ signal at 3.3V with some of our microcontrollers.
 We'll power the microcontroller boards from a different power supply than the
 servo. The servo is getting 6V from a battery pack, and our microcontroller
 will get either ~3V from a battery pack, or be fed via USB. When using the
-stm32, it'll gets 3.3V from the St-link programmer, and when using the Arduino
+STM32, it'll gets 3.3V from the St-link programmer, and when using the Arduino
 Nano we'll plug it into USB directly. Both can also be powered with either 3.3V
 or 5V on one of the pins marked accordingly. In the diagram I represent
 "generic power to the microcontroller" with a 3V battery pack, but in reality
 it's probably USB directly to the USB socket on the microcontroller board.
 
 We're connecting an oscilloscope so that we can see the signal, and we're using
-a breadboard to keep things a little neater. For the arduino setup, the end
+a breadboard to keep things a little neater. For the Arduino setup, the end
 result should look like this:
 
 <a href="images/ardunino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
@@ -206,7 +206,7 @@ NOTE: The PWM pin we have selected is PA0 on the blue pill microcontroller
 board. The PWM output is 3.3V, so below the 4.8V that the servo is expecting,
 but as you'll see, it works fine.
 
-<!-- TODO: repeat the stm32 images here -->
+<!-- TODO: repeat the STM32 images here -->
 
 
 ### Setup
@@ -269,7 +269,7 @@ signal corresponds to what angle of the servo.
 
 Here is what is displayed on our oscilloscope:
 
-![stm32 oscilloscope capture](images/stm32_oscilloscope.png)
+![STM32 oscilloscope capture](images/stm32_oscilloscope.png)
 
 
 ### probe-run
@@ -336,7 +336,7 @@ over to the microbit with your file manager.
 
 ## Arduino nano and c++
 
-Here we've wired up our Arduino Nano to the same servo setup. The contol pin
+Here we've wired up our Arduino Nano to the same servo setup. The control pin
 is "D9".
 
 <a href="images/arduino_setup_large.jpg"><img src="images/arduino_setup_small.jpg" /></a>
@@ -390,7 +390,7 @@ void loop() {
 When you run it, your servo should move - and you should see the following on your
 oscilloscope.
 
-![arduino oscilloscope capture](images/arduino_oscilloscope.png)
+![Arduino oscilloscope capture](images/arduino_oscilloscope.png)
 
 
 # Licenses
