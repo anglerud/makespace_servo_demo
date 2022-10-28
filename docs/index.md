@@ -143,7 +143,7 @@ Below we also have demos for two other microcontrollers, and a servo tester.
 # Controlling the servo
 
 The servo expects to receive a pulse every 20ms (so a 50HZ Signal), where the
-width of the pulse determines the position of the output shaft. If the pulse i
+width of the pulse determines the position of the output shaft. If the pulse is
 1ms long, the servo is at one extreme, and at 2ms it is at the opposite
 extreme. At 1.5ms, the servo is at its neutral (middle) position.
 
@@ -218,11 +218,11 @@ Add the cross-compilation target for the microcontroller:
 
     rustup target add thumbv7m-none-eabi
 
-Install `probe-rs`'s dependencies with
+Install `probe-run`'s dependencies with
 
     sudo apt install -y libusb-1.0-0-dev libftdi1-dev libudev-dev
 
-and then `probe-rs` itself with
+and then `probe-run` itself with
 
     cargo install probe-run
 
